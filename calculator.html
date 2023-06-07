@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Calculator
+    </title>
+    <style>
+        body {
+            background-color: rgb(49, 63, 69);
+            color: aliceblue;
+        }
+
+        #result {
+
+            font-size: 25px;
+            height: 65px;
+            width: 290px;
+        }
+
+        #calcu {
+            margin-top: 200px;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+            border: 15px solid;
+            border-color: rgb(33, 33, 82);
+            width: 437px;
+            height: 395px;
+            background-color: rgb(18, 18, 18);
+        }
+
+        #or {
+            background-color: orange;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 20px 40px;
+            background-color: rgba(83, 85, 83, 0.752);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: 20px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:active[type=button] {
+            background: #e5e5e5;
+            -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+            -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+        }
+
+
+        .quote2 {
+            position: absolute;
+            width: 300px;
+            font-size: xx-large;
+            color: darkgoldenrod;
+            display: block;
+            padding: auto;
+            text-align: center;
+            border-color: bisque;
+            border: 20px solid;
+            text-shadow: #e5e5e5;
+            animation-iteration-count: 1;
+            animation: ani1 15s 1;
+        }
+
+        h1 {
+            position: relative;
+        }
+
+        p {
+            position: relative;
+        }
+
+        .quote2::before {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            background: transparent;
+            border: 15px solid transparent;
+        }
+
+        .quote2:hover::before {
+            animation: animate 1s linear forwards;
+        }
+
+        @keyframes animate {
+            0% {
+                width: 0;
+                height: 0;
+                border-top-color: black;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+
+            50% {
+                width: 100%;
+                height: 0;
+                border-top-color: black;
+                border-right-color: black;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+
+            100% {
+                width: 100%;
+                height: 100%;
+                border-top-color: black;
+                border-right-color: black;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+        }
+
+        .quote2::after {
+            content: "";
+            position: absolute;
+            top: 40px;
+            left: -2px;
+            width: 0;
+            height: 0;
+            background: transparent;
+            border: 15px solid transparent;
+        }
+
+        .quote2:hover::after {
+            animation: animates 1s linear forwards;
+        }
+
+        @keyframes animates {
+            0% {
+                width: 0;
+                height: 0;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: black;
+            }
+
+            50% {
+                width: 100%;
+                height: 100%;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: black;
+                border-left-color: black;
+            }
+
+            100% {
+                width: 100%;
+                height: 100%;
+                border-top-color: transparent;
+                border-right-color: transparent;
+                border-bottom-color: black;
+                border-left-color: black;
+            }
+        }
+
+        @keyframes ani1 {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media only screen and (max-width: 580px) {
+            #result {
+                font-size: medium;
+                height: 65px;
+                width: 290px;
+                background-color: rgb(12, 12, 12);
+
+            }
+
+            #calcu {
+                height: auto;
+                width: 412px;
+                border: 2px solid;
+                padding: none;
+            }
+
+            input[type="button"] {
+                padding: auto;
+                border: 10px;
+            }
+
+            .quote2 {
+                display: none;
+                color: #e5e5e5;
+                font-size: larger;
+                border: 20px solid;
+                padding: 10px;
+                color: antiquewhite;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quote2">
+        <h1>
+            Creator :- Paras Dhiman
+        </h1>
+    </div>
+    <div class="table">
+        <table id="calcu">
+            <div class="tableRow">
+                <tr>
+                    <td colspan="3">
+                        <input type="text" id="result">
+                    </td>
+                    <td>
+                        <input type="button" value="c" onclick="clr()" id="or" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="1" onclick="dis('1')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="2" onclick="dis('2')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="3" onclick="dis('3')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input id="or" type="button" value="+" onclick="dis('+')" onkeydown="myFunction(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="4" onclick="dis('4')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="5" onclick="dis('5')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="6" onclick="dis('6')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input id="or" type="button" value="-" onclick="dis('-')" onkeydown="myFunction(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="7" onclick="dis('7')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="8" onclick="dis('8')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="9" onclick="dis('9')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input id="or" type="button" value="*" onclick="dis('*')" onkeydown="myFunction(event)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="0" onclick="dis('0')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input type="button" value="." onclick="dis('.')" onkeydown="myFunction(event)">
+                    </td>
+                    <td>
+                        <input id="or" type="button" value="=" onclick="solve()">
+                    </td>
+                    <td>
+                        <input id="or" type="button" value="/" onclick="dis('/')" onkeydown="myFunction(event)">
+                    </td>
+                </tr>
+            </div>
+        </table>
+        <script>
+            // Function that display value
+            function dis(val) {
+                document.getElementById("result").value += val
+            }
+
+            function myFunction(event) {
+                if (event.key == '0' || event.key == '1'
+                    || event.key == '2' || event.key == '3'
+                    || event.key == '4' || event.key == '5'
+                    || event.key == '6' || event.key == '7'
+                    || event.key == '8' || event.key == '9'
+                    || event.key == '+' || event.key == '-'
+                    || event.key == '*' || event.key == '/')
+                    document.getElementById("result").value += event.key;
+            }
+
+            var cal = document.getElementById("calcu");
+            cal.onkeyup = function (event) {
+                if (event.keyCode === 13) {
+                    console.log("Enter");
+                    let x = document.getElementById("result").value
+                    console.log(x);
+                    solve();
+                }
+            }
+
+            // Function that evaluates the digit and return result
+            function solve() {
+                let x = document.getElementById("result").value
+                let y = eval(x);
+                document.getElementById("result").value = y
+            }
+
+            // Function that clear the display
+            function clr() {
+                document.getElementById("result").value = ""
+            }
+        </script>
+    </div>
+</body>
+
+</html>
